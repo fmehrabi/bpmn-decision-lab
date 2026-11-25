@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b35">
+  <meta name="description" content="آزمایشگاه تعاملی BPMN برای تحلیل، شبیه‌سازی و بهبود فرایندهای کسب‌وکار">
+  <title>BPMN Decision Lab | آزمایشگاه تصمیم‌گیری فرایند</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="ناوبری اصلی">
+      <div class="brand-lockup">
+        <div class="brand-mark">B<span>↗</span></div>
+        <div><div class="brand-title">BPMN <b>Decision Lab</b></div><div class="brand-subtitle">PROCESS THINKING WORKSPACE</div></div>
+      </div>
+      <div class="side-label">محیط یادگیری</div>
+      <nav class="side-nav">
+        <button class="nav-link active" data-view="overview"><span class="nav-icon">⌂</span><span>پیشخوان</span></button>
+        <button class="nav-link" data-view="process"><span class="nav-icon">▤</span><span>پرونده فرایند</span><span class="nav-count">01</span></button>
+        <button class="nav-link" data-view="lab"><span class="nav-icon">⚗</span><span>آزمایشگاه بهبود</span></button>
+        <button class="nav-link" data-view="arena"><span class="nav-icon">◇</span><span>Decision Arena</span><span class="nav-count">10</span></button>
+        <button class="nav-link" data-view="insights"><span class="nav-icon">▥</span><span>گزارش تشخیصی</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="side-card">
+        <div class="side-card-icon">✦</div>
+        <strong>یادگیری مبتنی بر شواهد</strong>
+        <p>هر تغییر یک فرضیه است؛ هر نتیجه، یک فرصت برای بازنگری.</p>
+      </div>
+      <div class="sidebar-footer"><span class="status-dot"></span> نمونه مستقل و محلی <span class="version">v0.4.1</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>آزمایشگاه فرایند</span><span class="crumb-sep">/</span><strong id="pageTitle">پیشخوان</strong></div>
+        <div class="topbar-actions">
+          <span class="environment-badge"><i></i> محیط آموزشی · داده فرضی</span>
+          <button class="icon-button" id="helpButton" aria-label="راهنما" title="راهنما">?</button>
+          <div class="avatar">FM</div>
+        </div>
+      </header>
+
+      <section class="view active" id="overview">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <div class="eyebrow light"><span class="eyebrow-dot"></span> PROCESS IMPROVEMENT CASE · ECOM-001</div>
+            <h1>از مشاهده فرایند<br><em>تا تصمیم بهتر.</em></h1>
+            <p>در نقش تحلیلگر فرایند فروشگاه «سپهر» قرار بگیرید. شواهد را بررسی کنید، مداخله طراحی کنید و اثر تصمیم خود را بر زمان، هزینه، ظرفیت و کیفیت بسنجید.</p>
+            <div class="hero-actions"><button class="button button-light" data-go="process">شروع از پرونده فرایند <span>←</span></button><button class="button button-outline-light" data-go="arena">ورود به آزمون تصمیم‌گیری</button></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="orbit-node node-a"><span>01</span><b>Model</b></div>
+            <div class="orbit-node node-b"><span>02</span><b>Test</b></div>
+            <div class="orbit-node node-c"><span>03</span><b>Improve</b></div>
+            <div class="orbit-core"><div class="core-symbol">B</div><span>PROCESS<br>INTELLIGENCE</span></div>
+            <div class="floating-metric"><small>CASE STUDY</small><strong>ECOM-001</strong><span>Order fulfillment</span></div>
+          </div>
+          <div class="hero-bottom"><span>01 / 01 <b>پرونده آزمایشی</b></span><span>مدل‌سازی · شبیه‌سازی · استدلال · بازبینی</span></div>
+        </div>
+
+        <div class="section-heading"><div><div class="eyebrow">YOUR WORKSPACE</div><h2>نمای کلی پرونده</h2><p>یک مسئله واقعی‌نما با داده‌های آموزشی کنترل‌شده.</p></div><span class="tag tag-blue">پایلوت آموزشی</span></div>
+        <div class="stat-grid" id="overviewStats">
+          <article class="stat-card"><div class="stat-top"><span>تقاضای پایه</span><span class="stat-icon blue">↗</span></div><strong>۸۰ <small>سفارش / شیفت</small></strong><div class="stat-foot">شیفت کاری ۸ ساعته</div></article>
+          <article class="stat-card"><div class="stat-top"><span>زمان بسته‌بندی</span><span class="stat-icon violet">◷</span></div><strong>۱۲ <small>دقیقه / سفارش</small></strong><div class="stat-foot">۲ نیروی بسته‌بندی</div></article>
+          <article class="stat-card"><div class="stat-top"><span>نرخ دوباره‌کاری</span><span class="stat-icon amber">↻</span></div><strong>۸<small>٪</small></strong><div class="stat-foot">بازگشت از کنترل کیفیت</div></article>
+          <article class="stat-card"><div class="stat-top"><span>حوزه‌های ارزیابی</span><span class="stat-icon green">◇</span></div><strong>۶ <small>مهارت</small></strong><div class="stat-foot">از مدل‌خوانی تا قضاوت مدیریتی</div></article>
+        </div>
+
+        <div class="content-grid overview-content">
+          <article class="panel case-panel">
+            <div class="panel-header"><div><div class="eyebrow">BUSINESS CASE</div><h3>سفارش‌های فروشگاه سپهر</h3></div><span class="status-pill status-warning">نیازمند بررسی</span></div>
+            <p class="lead-text" id="caseDescription">فروشگاه اینترنتی سپهر روزانه سفارش‌های پرداخت‌شده را از انبار جمع‌آوری، بسته‌بندی، کنترل و برای ارسال آماده می‌کند. مدیریت درباره تأخیر، انباشت سفارش‌ها و دوباره‌کاری بسته‌بندی نگران است.</p>
+            <div class="case-meta-grid">
+              <div><span>صنعت</span><b>تجارت الکترونیک</b></div><div><span>محدوده</span><b>ثبت تا تحویل به ارسال</b></div><div><span>هدف</span><b>زمان کمتر، کیفیت پایدار</b></div><div><span>محدودیت</span><b>بودجه و ظرفیت منابع</b></div>
+            </div>
+            <div class="callout callout-blue"><span class="callout-mark">i</span><div><b>مأموریت شما</b><p>بهترین راهکار را با توجه به شواهد انتخاب کنید؛ کاهش زمان به‌تنهایی به معنی بهبود فرایند نیست.</p></div></div>
+            <div class="panel-actions"><button class="button button-primary" data-go="process">بررسی نمودار As-Is <span>←</span></button><button class="button button-quiet" data-go="lab">شروع آزمایش</button></div>
+          </article>
+          <article class="panel objectives-panel">
+            <div class="panel-header"><div><div class="eyebrow">LEARNING OBJECTIVES</div><h3>چه چیزی را تمرین می‌کنید؟</h3></div><span class="mini-icon">✦</span></div>
+            <div class="objective-list">
+              <div class="objective-item"><span class="objective-no">01</span><div><b>خواندن منطق BPMN</b><p>رویدادها، فعالیت‌ها، Gateway و مسیر بازگشت</p></div></div>
+              <div class="objective-item"><span class="objective-no">02</span><div><b>تشخیص مسئله با شواهد</b><p>گلوگاه، زمان انتظار، ظرفیت و دوباره‌کاری</p></div></div>
+              <div class="objective-item"><span class="objective-no">03</span><div><b>طراحی و آزمون مداخله</b><p>منابع، استانداردسازی و خودکارسازی</p></div></div>
+              <div class="objective-item"><span class="objective-no">04</span><div><b>دفاع از تصمیم</b><p>موازنه زمان، هزینه، کیفیت و ریسک</p></div></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading compact"><div><div class="eyebrow">LEARNING JOURNEY</div><h2>مسیر پیشنهادی شما</h2></div></div>
+        <div class="journey-grid">
+          <button class="journey-card" data-go="process"><span class="journey-number">01</span><span class="journey-symbol">▤</span><b>درک فرایند</b><small>شرح مسئله و نمودار As-Is</small><i>ورود به پرونده ←</i></button>
+          <button class="journey-card" data-go="lab"><span class="journey-number">02</span><span class="journey-symbol">⚗</span><b>آزمایش مداخله</b><small>تغییر پارامتر و مقایسه سناریو</small><i>ورود به آزمایشگاه ←</i></button>
+          <button class="journey-card" data-go="arena"><span class="journey-number">03</span><span class="journey-symbol">◇</span><b>تصمیم‌گیری</b><small>۱۰ سؤال مرحله‌ای و مبتنی بر شواهد</small><i>شروع آزمون ←</i></button>
+          <button class="journey-card" data-go="insights"><span class="journey-number">04</span><span class="journey-symbol">▥</span><b>بازبینی و یادگیری</b><small>گزارش مهارت و Decision Replay</small><i>مشاهده گزارش ←</i></button>
+        </div>
+      </section>
+
+      <section class="view" id="process">
+        <div class="page-intro"><div><div class="eyebrow">01 / PROCESS EXPLORER</div><h1>پرونده فرایند</h1><p>ابتدا منطق جریان را بفهمید؛ سپس درباره تغییر آن تصمیم بگیرید.</p></div><span class="status-pill status-neutral">AS-IS · VERSION 1.0</span></div>
+        <div class="content-grid process-grid">
+          <article class="panel diagram-panel">
+            <div class="panel-header"><div><div class="eyebrow">BUSINESS PROCESS MODEL</div><h3>پردازش سفارش فروشگاه سپهر</h3></div><div class="panel-tools"><span class="tag tag-blue">BPMN 2.0 · Simplified view</span><button class="button button-small button-quiet" id="resetModelView">بازنشانی انتخاب</button></div></div>
+            <div class="diagram-scroll"><svg id="processDiagram" class="process-diagram" viewBox="0 0 1180 360" role="img" aria-label="نمودار فرایند As-Is پردازش سفارش"></svg></div>
+            <div class="diagram-legend"><span><i class="legend-event"></i>رویداد</span><span><i class="legend-task"></i>فعالیت</span><span><i class="legend-gateway"></i>دروازه تصمیم</span><span><i class="legend-line"></i>جریان توالی</span><span><i class="legend-modified"></i>عنصر تغییر‌یافته</span></div>
+            <div class="diagram-note"><b>راهنمای تعامل</b><span>برای مشاهده شرح هر فعالیت، روی گره مربوط در نمودار کلیک کنید. برش‌های آزمون نیز از همین منطق فرایند استفاده می‌کنند.</span></div>
+          </article>
+          <aside class="panel detail-panel">
+            <div class="eyebrow">ELEMENT INSPECTOR</div><h3 id="elementTitle">جمع‌آوری و بسته‌بندی</h3><span class="element-type" id="elementType">User Task · فعالیت کاربر</span>
+            <p id="elementDescription" class="detail-description">اقلام سفارش از قفسه جمع‌آوری و بسته‌بندی می‌شوند. این ایستگاه در سناریوی پایه نامزد اصلی گلوگاه است.</p>
+            <div class="detail-stats" id="elementStats"><div><span>زمان پایه</span><b>۱۲ دقیقه</b></div><div><span>منابع</span><b>۲ نفر</b></div><div><span>ورودی</span><b>سفارش پرداخت‌شده</b></div><div><span>خروجی</span><b>بسته آماده کنترل</b></div></div>
+            <div class="divider"></div><div class="eyebrow">PROCESS CONTEXT</div>
+            <div class="context-row"><span>حجم تقاضا</span><b>۸۰ سفارش در شیفت</b></div><div class="context-row"><span>مدت شیفت</span><b>۴۸۰ دقیقه</b></div><div class="context-row"><span>نرخ پرداخت ناموفق</span><b>۴٪</b></div><div class="context-row"><span>نرخ اصلاح بسته</span><b>۸٪</b></div>
+            <div class="callout callout-amber"><span class="callout-mark">!</span><div><b>فرضیه اولیه، نه نتیجه قطعی</b><p>تقاضای پایه با ظرفیت اسمی بسته‌بندی برابر است. دوباره‌کاری می‌تواند بار کاری را از ظرفیت اسمی عبور دهد.</p></div></div>
+          </aside>
+        </div>
+        <div class="section-heading compact"><div><div class="eyebrow">MODEL ASSUMPTIONS</div><h2>فرضیات و مرزهای مدل</h2><p>برای تفسیر درست خروجی‌ها، فرضیات را پیش از شبیه‌سازی بخوانید.</p></div></div>
+        <div class="assumption-grid" id="assumptionList"></div>
+        <div class="bottom-callout"><div><b>گام بعدی: تبدیل مشاهده به فرضیه</b><p>از روی نمودار و داده‌ها، مشخص کنید کدام بخش باید اول بررسی شود.</p></div><button class="button button-primary" data-go="lab">رفتن به آزمایشگاه ←</button></div>
+      </section>
+
+      <section class="view" id="lab">
+        <div class="page-intro"><div><div class="eyebrow">02 / EXPERIMENT WORKSPACE</div><h1>آزمایشگاه بهبود</h1><p>پارامترها و مداخلات را تغییر دهید؛ اثر آن‌ها را روی عملکرد کل فرایند بسنجید.</p></div><span class="status-pill status-success"><i></i> محاسبه داخل مرورگر</span></div>
+        <div class="callout callout-blue lab-intro"><span class="callout-mark">i</span><div><b>روش آزمایش</b><p>ابتدا اجرای پایه را ثبت کنید؛ سپس یک یا چند مداخله را فعال و دوباره اجرا کنید. مقایسه با ورودی‌ها و بذر تصادفی یکسان انجام می‌شود تا اثر مداخلات قابل مشاهده باشد.</p></div></div>
+        <div class="content-grid lab-grid">
+          <article class="panel control-panel">
+            <div class="panel-header"><div><div class="eyebrow">SCENARIO CONFIGURATION</div><h3>تنظیم پارامترها</h3></div><button class="button button-small button-quiet" id="resetControls">بازنشانی پایه</button></div>
+            <div class="control-group"><div class="control-label"><label for="demand">حجم سفارش در هر شیفت</label><output id="demandOut">۸۰ سفارش</output></div><input id="demand" type="range" min="40" max="160" step="5" value="80"><div class="range-ends"><span>۴۰</span><span>۱۶۰ سفارش</span></div></div>
+            <div class="control-group"><div class="control-label"><label for="packers">تعداد کارکنان بسته‌بندی</label><output id="packersOut">۲ نفر</output></div><input id="packers" type="range" min="1" max="5" step="1" value="2"><div class="range-ends"><span>۱</span><span>۵ نفر</span></div></div>
+            <div class="control-group"><div class="control-label"><label for="packMinutes">زمان پردازش بسته‌بندی</label><output id="packMinutesOut">۱۲ دقیقه</output></div><input id="packMinutes" type="range" min="6" max="20" step="1" value="12"><div class="range-ends"><span>۶</span><span>۲۰ دقیقه</span></div></div>
+            <div class="control-group"><div class="control-label"><label for="reworkPercent">نرخ دوباره‌کاری پایه</label><output id="reworkPercentOut">۸٪</output></div><input id="reworkPercent" type="range" min="0" max="20" step="1" value="8"><div class="range-ends"><span>۰٪</span><span>۲۰٪</span></div></div>
+            <div class="divider"></div>
+            <div class="panel-header"><div><div class="eyebrow">IMPROVEMENT TOOLKIT</div><h3>مداخلات قابل آزمایش</h3></div><span class="tag">قابل ترکیب</span></div>
+            <div class="intervention-list">
+              <label class="intervention"><input type="checkbox" id="automation"><span class="intervention-icon">⌁</span><span class="intervention-copy"><b>خودکارسازی تأیید پرداخت</b><small>کاهش زمان خدمت و افزایش ظرفیت پردازش دیجیتال</small><em>هزینه ثابت ۴۵ + هزینه متغیر هر سفارش</em></span><span class="toggle"></span></label>
+              <label class="intervention"><input type="checkbox" id="checklist"><span class="intervention-icon">✓</span><span class="intervention-copy"><b>چک‌لیست استاندارد بسته‌بندی</b><small>کاهش فرضی نرخ بازگشت بسته از ۸٪ به حداکثر ۳٪</small><em>هزینه اجرا: ۲۰ واحد در هر شیفت</em></span><span class="toggle"></span></label>
+              <label class="intervention"><input type="checkbox" id="extraPacker"><span class="intervention-icon">＋</span><span class="intervention-copy"><b>افزودن یک نیروی بسته‌بندی</b><small>افزایش ظرفیت ایستگاه بدون تغییر منطق جریان</small><em>هزینه: ۱۲۰ واحد در هر شیفت</em></span><span class="toggle"></span></label>
+            </div>
+            <div class="field-block"><label for="hypothesis">فرضیه شما پیش از اجرا</label><textarea id="hypothesis" rows="3" placeholder="مثلاً انتظار دارم چک‌لیست، نرخ دوباره‌کاری را کاهش دهد؛ اما ممکن است زمان کنترل اولیه را افزایش دهد..."></textarea></div>
+            <div class="field-block"><label for="goal">اولویت تصمیم</label><select id="goal"><option value="balanced">تعادل زمان، هزینه و کیفیت</option><option value="time">کاهش زمان چرخه</option><option value="cost">کنترل هزینه</option><option value="quality">حفظ و بهبود کیفیت</option><option value="capacity">افزایش ظرفیت</option></select></div>
+            <button class="button button-primary button-wide" id="runExperiment">▶ اجرای شبیه‌سازی</button>
+          </article>
+          <article class="panel results-panel">
+            <div class="panel-header"><div><div class="eyebrow">LIVE EXPERIMENT OUTPUT</div><h3>نتایج آخرین اجرا</h3></div><span class="result-stamp" id="runStamp">هنوز اجرا نشده</span></div>
+            <div id="resultsPlaceholder" class="empty-state"><div class="empty-icon">⌁</div><b>هنوز آزمایشی اجرا نشده است</b><p>پارامترها را بررسی کنید و «اجرای شبیه‌سازی» را انتخاب کنید تا شاخص‌ها و نمودارها نمایش داده شوند.</p></div>
+            <div id="resultsContent" class="hidden">
+              <div class="kpi-grid" id="kpiGrid"></div>
+              <div class="divider"></div>
+              <div class="chart-heading"><div><b>بار کاری ایستگاه‌ها</b><small>تقاضای خدمت نسبت به ظرفیت اسمی شیفت</small></div><span class="chart-unit">٪ ظرفیت</span></div>
+              <div id="stationChart" class="station-chart"></div>
+              <div class="divider"></div>
+              <div class="chart-heading"><div><b>مقایسه اجرای پایه و سناریوی شما</b><small>مقادیر محاسبه‌شده از اجرای مدل</small></div><span class="tag tag-blue">Baseline / Current</span></div>
+              <div id="comparisonTable"></div>
+              <div class="to-be-preview panel-subsection"><div class="chart-heading"><div><b>نمای مدل پیشنهادی To-Be</b><small>گره‌های متأثر از مداخلات شما با خط سبز مشخص می‌شوند.</small></div><span class="tag tag-blue">LIVE MODEL VIEW</span></div><div class="diagram-scroll"><svg id="toBeDiagram" class="process-diagram" viewBox="0 0 1280 420" role="img" aria-label="نمای مفهومی مدل To-Be"></svg></div><p id="toBeNote" class="muted-note">هنوز مداخله ساختاری انتخاب نشده است.</p></div>
+              <div id="bottleneckNote" class="callout callout-amber"></div>
+              <div class="bottom-actions"><button class="button button-quiet" id="saveScenario">ذخیره اجرای فعلی در این مرورگر</button><button class="button button-primary" data-go="insights">مشاهده تحلیل ←</button></div>
+            </div>
+          </article>
+        </div>
+        <div class="panel scenario-history-panel"><div class="panel-header"><div><div class="eyebrow">EXPERIMENT LOG</div><h3>تاریخچه آزمایش‌ها</h3><p>برای مقایسه و بازبینی تصمیم‌ها، اجرای هر سناریو را ثبت کنید.</p></div><button class="button button-small button-quiet" id="clearHistory">پاک‌کردن تاریخچه</button></div><div id="historyList" class="history-list"><div class="empty-inline">هنوز سناریویی ذخیره نشده است.</div></div></div>
+      </section>
+
+      <section class="view" id="arena">
+        <div class="page-intro"><div><div class="eyebrow">03 / SCENARIO-BASED ASSESSMENT</div><h1>Decision Arena</h1><p>در یک سناریوی پیوسته، از خواندن BPMN به تصمیم‌گیری مدیریتی برسید.</p></div><span class="status-pill status-neutral">۱۰ سؤال · ۵ سطح دشواری</span></div>
+        <div class="assessment-banner"><div><div class="eyebrow light">THINK BEFORE YOU CHOOSE</div><h2>پاسخ سریع کافی نیست.<br><em>از انتخاب خود دفاع کنید.</em></h2><p>هر سؤال یک هدف یادگیری مشخص دارد. شواهد را بخوانید، یک گزینه انتخاب کنید و دلیل خود را ثبت کنید. پاسخ صحیح تا پایان آزمون نمایش داده نمی‌شود.</p><div class="assessment-meta"><span>◷ حدود ۱۲–۱۵ دقیقه</span><span>◇ امتیاز جزئی برای گزینه‌های قابل دفاع</span><span>▤ بازخورد پس از پایان</span></div></div><div class="assessment-graphic"><div class="assessment-ring"><span>10</span><small>QUESTIONS</small></div><div class="ring-caption">DIAGNOSE<br>→ DECIDE<br>→ DEFEND</div></div></div>
+        <div id="assessmentIntro" class="panel assessment-intro">
+          <div class="assessment-intro-copy"><div class="eyebrow">BEFORE YOU START</div><h3>پرونده فروشگاه سپهر</h3><p>در تمام آزمون یک سازمان ثابت را بررسی می‌کنید؛ اما اطلاعات و محدودیت‌ها در هر مرحله تغییر می‌کنند. سؤال‌ها شامل برش نمودار BPMN، داده‌های کمی و موقعیت‌های عملیاتی‌اند؛ در سؤال‌های تحلیلی ثبت استدلال الزامی است.</p><div class="assessment-rules"><span>✓ یک پاسخ برتر برای هر سؤال</span><span>✓ امکان ثبت استدلال کوتاه</span><span>✓ بدون راهنمایی پاسخ حین آزمون</span><span>✓ تحلیل پیامد گزینه‌های جایگزین در پایان</span></div><button class="button button-primary" id="startAssessment">شروع ارزیابی <span>←</span></button></div>
+          <div class="assessment-overview"><div class="overview-number">۰۵ <small>سطح دشواری</small></div><div class="level-track"><span>مقدماتی</span><i></i><span>پیشرفته</span></div><div class="overview-number">۰۶ <small>حوزه شایستگی</small></div><div class="skill-chips"><span>مدل‌خوانی</span><span>تشخیص مسئله</span><span>تحلیل ظرفیت</span><span>بازطراحی</span><span>مبادله‌ها</span><span>اعتبارسنجی</span></div></div>
+        </div>
+        <div id="questionWorkspace" class="question-workspace hidden">
+          <div class="question-main panel">
+            <div class="question-topline"><div><span class="question-counter" id="questionCounter">سؤال ۰۱ از ۱۰</span><span class="question-level" id="questionLevel">مقدماتی</span></div><span class="question-domain" id="questionDomain">درک BPMN</span></div>
+            <div class="progress-track"><i id="questionProgress"></i></div>
+            <div class="question-evidence" id="questionEvidence"></div>
+            <h2 id="questionTitle"></h2><p id="questionPrompt" class="question-prompt"></p>
+            <div class="option-list" id="questionOptions"></div>
+            <div class="reasoning-box"><label for="questionReason">استدلال شما <span id="reasonRequirement">اختیاری؛ برای بازبینی مدرس مفید است</span></label><textarea id="questionReason" rows="3" placeholder="به کدام داده، نماد یا محدودیت توجه کردید؟ چرا این گزینه را انتخاب کردید؟"></textarea></div>
+            <div class="question-footer"><span id="answerState" class="muted-note">یک گزینه انتخاب کنید تا ادامه فعال شود.</span><div class="button-row"><button class="button button-quiet" id="previousQuestion" disabled>→ قبلی</button><button class="button button-primary" id="nextQuestion" disabled>ثبت و ادامه ←</button></div></div>
+          </div>
+          <aside class="panel question-aside"><div class="eyebrow">ASSESSMENT MAP</div><h3>مسیر ارزیابی</h3><div id="questionMap" class="question-map"></div><div class="aside-divider"></div><b>راهنمای پاسخ</b><p>بهترین گزینه لزوماً سریع‌ترین اقدام نیست. ابتدا شواهد، محدودیت‌ها و پیامدهای احتمالی را بررسی کنید.</p><div class="callout callout-blue"><span class="callout-mark">i</span><div><b>نکته</b><p>امتیاز این آزمون انتخابی است. متن استدلال شما ذخیره می‌شود، اما در این نسخه به‌صورت خودکار نمره‌گذاری نمی‌شود.</p></div></div></aside>
+        </div>
+        <div id="assessmentComplete" class="panel completion-panel hidden"><div class="completion-icon">✓</div><div class="eyebrow">ASSESSMENT SUBMITTED</div><h2>آزمون به پایان رسید.</h2><p>پاسخ‌ها ثبت شده‌اند. اکنون گزارش مهارت، توضیح گزینه‌ها و Decision Replay را بررسی کنید.</p><button class="button button-primary" data-go="insights">مشاهده گزارش تشخیصی ←</button></div>
+      </section>
+
+      <section class="view" id="insights">
+        <div class="page-intro"><div><div class="eyebrow">04 / PERFORMANCE & DECISION REVIEW</div><h1>گزارش تشخیصی</h1><p>نتیجه آزمون و شواهد آزمایش خود را کنار هم ببینید؛ این گزارش، نقاط تمرکز یادگیری را نشان می‌دهد.</p></div><div class="button-row"><button class="button button-quiet" id="exportReport">خروجی JSON</button><button class="button button-primary" id="printReport">چاپ گزارش</button></div></div>
+        <div id="reportEmpty" class="panel empty-state report-empty"><div class="empty-icon">▥</div><b>گزارش هنوز آماده نیست</b><p>برای ساخت گزارش، آزمون Decision Arena را تکمیل کنید. اجرای شبیه‌سازی در بخش «آخرین آزمایش شما» جداگانه نمایش داده می‌شود.</p><div class="button-row"><button class="button button-primary" data-go="arena">شروع آزمون</button><button class="button button-quiet" data-go="lab">اجرای آزمایش</button></div></div>
+        <div id="reportContent" class="hidden">
+          <div class="report-hero panel"><div><div class="eyebrow light">LEARNING DIAGNOSTICS · NOT A PERSONALITY TEST</div><h2>پروفایل تصمیم‌گیری فرایندی</h2><p>این گزارش عملکرد شما را در همین سناریو و بر اساس پاسخ‌های ثبت‌شده خلاصه می‌کند؛ نه یک قضاوت کلی درباره توانایی حرفه‌ای شما.</p></div><div class="score-orb"><strong id="overallScore">—</strong><span>از ۱۰۰</span><small id="scoreLabel">در انتظار ارزیابی</small></div></div>
+          <div class="content-grid report-grid">
+            <article class="panel"><div class="panel-header"><div><div class="eyebrow">COMPETENCY PROFILE</div><h3>حوزه‌های شایستگی</h3></div><span class="tag">بر اساس پاسخ‌های آزمون</span></div><div id="competencyBars" class="competency-bars"></div><div class="diagnostic-footnote">امتیاز هر حوزه فقط از سؤال‌های مرتبط محاسبه می‌شود. حوزه‌هایی با تعداد سؤال کمتر، شواهد محدودتری دارند.</div></article>
+            <article class="panel"><div class="panel-header"><div><div class="eyebrow">EXPERIMENT PERFORMANCE</div><h3>آخرین آزمایش شما</h3></div></div><div id="experimentSummary"><div class="empty-inline">هنوز اجرای شبیه‌سازی ثبت نشده است.</div></div></article>
+          </div>
+          <article class="panel diagnostic-signal-panel"><div class="panel-header"><div><div class="eyebrow">DECISION RISK & MISCONCEPTION REVIEW</div><h3>آسیب‌شناسی الگوهای تصمیم</h3><p>این موارد، انتخاب‌های نیازمند بازبینی در همین سناریو هستند؛ نه برچسبی درباره توانایی کلی شما.</p></div><span class="tag tag-violet">Evidence-based review</span></div><div id="diagnosticSummary" class="diagnostic-summary"></div><div id="diagnosticSignals" class="diagnostic-signals"></div><div id="reasonCoverage" class="reason-coverage"></div></article>
+          <article class="panel learning-plan-panel"><div class="panel-header"><div><div class="eyebrow">NEXT LEARNING MOVES</div><h3>پیشنهاد برای تمرین بعدی</h3></div><span class="mini-icon">✦</span></div><div id="learningRecommendations" class="recommendation-list"></div></article>
+          <article class="panel replay-panel"><div class="panel-header"><div><div class="eyebrow">DECISION REPLAY</div><h3>بازبینی سؤال‌به‌سؤال</h3><p>انتخاب شما، گزینه برتر و پیامد گزینه‌های جایگزین را با هم مقایسه کنید.</p></div><span class="tag tag-violet">تحلیل پس از آزمون</span></div><div id="decisionReplay" class="replay-list"></div></article>
+          <div class="bottom-callout"><div><b>تبدیل گزارش به یادگیری</b><p>دلیل‌های متنی شما برای بازخورد مدرس قابل بررسی‌اند؛ این نسخه آن‌ها را به‌طور خودکار داوری نمی‌کند.</p></div><button class="button button-primary" data-go="lab">آزمایش دوباره با فرضیه جدید ←</button></div>
+        </div>
+      </section>
+
+      <footer class="app-footer"><span>BPMN Decision Lab · Pilot 0.4.1</span><span>تمام محاسبات در مرورگر انجام می‌شوند؛ داده‌ها به سرور ارسال نمی‌شوند.</span><span>Educational prototype · Fictional case data</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="helpDialog" class="help-dialog"><div class="dialog-head"><div><div class="eyebrow">QUICK GUIDE</div><h3>راهنمای استفاده از پایلوت</h3></div><button class="icon-button" id="closeHelp" aria-label="بستن">×</button></div><ol><li>از «پرونده فرایند» مدل As-Is و فرضیات را بخوانید.</li><li>در «آزمایشگاه بهبود» ابتدا اجرای پایه را ثبت کنید.</li><li>یک مداخله یا ترکیبی از مداخلات را انتخاب و نتیجه را مقایسه کنید.</li><li>در Decision Arena به ۱۰ سؤال پاسخ دهید و استدلال خود را بنویسید.</li><li>در گزارش، نقاط قوت، فرصت‌های یادگیری و پیامد گزینه‌های دیگر را بررسی کنید.</li></ol><p class="muted-note">نسخه فعلی یک مدل آموزشی ساده‌شده است؛ نه جایگزین ابزار صنعتی یا داده واقعی سازمانی.</p></dialog>
+  <script src="./assets/data.js"></script>
+  <script src="./assets/simulator.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>

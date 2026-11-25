@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use BPMN Decision Lab in teaching or research, please cite this repository."
+title: "BPMN Decision Lab"
+version: 0.4.1
+date-released: 2026-11-25
+type: software
+abstract: >-
+  A browser-only educational prototype for BPMN process interpretation,
+  discrete-event teaching simulation, process-improvement experiments,
+  scenario-based assessment, and decision review.
+license: MIT

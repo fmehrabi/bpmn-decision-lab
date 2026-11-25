@@ -1,0 +1,46 @@
+name: Project quality checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+
+      - name: Rebuild browser data bundle
+        run: python scripts/build-data.py
+
+      - name: Confirm generated data bundle is committed
+        run: git diff --exit-code -- assets/data.js
+
+      - name: Validate project structure
+        run: python scripts/validate-project.py
+
+      - name: Run simulation and assessment smoke tests
+        run: node tests/smoke-test.js
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/app.js
+          node --check assets/simulator.js
+          node --check assets/data.js

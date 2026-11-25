@@ -1,0 +1,220 @@
+{
+  "id": "ECOM-001",
+  "title": "پردازش سفارش فروشگاه اینترنتی سپهر",
+  "industry": "تجارت الکترونیک",
+  "version": "1.0.0",
+  "description": "فروشگاه اینترنتی سپهر سفارش‌های پرداخت‌شده را از انبار جمع‌آوری، بسته‌بندی، کنترل و برای ارسال آماده می‌کند. مدیریت درباره تأخیر، انباشت سفارش‌ها و دوباره‌کاری بسته‌بندی نگران است.",
+  "mission": "بهبود عملکرد فرایند بدون قربانی‌کردن کیفیت و بدون افزایش ناموجه هزینه عملیاتی.",
+  "baseline": {
+    "demandPerShift": 80,
+    "shiftMinutes": 480,
+    "packers": 2,
+    "packMinutes": 12,
+    "reworkPercent": 8,
+    "paymentFailurePercent": 4,
+    "laborCostPerWorkerPerShift": 120,
+    "automationFixedCost": 45,
+    "automationVariableCostPerOrder": 0.2,
+    "checklistDailyCost": 20,
+    "currency": "واحد هزینه آموزشی"
+  },
+  "targets": {
+    "cycleTimeMinutes": 30,
+    "maxCostIncreasePercent": 10,
+    "firstPassYieldPercent": 95,
+    "demandShockMultiplier": 1.4
+  },
+  "assumptions": [
+    "هر شیفت ۸ ساعت یا ۴۸۰ دقیقه است.",
+    "ورود سفارش‌ها در طول شیفت به‌صورت یکنواخت مدل شده است؛ بنابراین این نسخه، الگوی پیک ساعتی را بازنمایی نمی‌کند.",
+    "نرخ پرداخت ناموفق در مدل پایه ۴ درصد و نرخ نیاز به اصلاح بسته‌بندی ۸ درصد فرض شده است.",
+    "هر سفارش در صورت نیاز به اصلاح، یک بار به بسته‌بندی بازمی‌گردد.",
+    "زمان‌ها و هزینه‌ها داده‌های آموزشی ساختگی هستند و از یک شرکت واقعی استخراج نشده‌اند.",
+    "سناریوها با بذر تصادفی ثابت اجرا می‌شوند تا مقایسه تغییرات منصفانه‌تر باشد.",
+    "موتور شبیه‌سازی یک مدل آموزشی رویدادگسسته و ساده‌شده است؛ نتایج آن نباید بدون کالیبراسیون به تصمیم واقعی سازمانی تعمیم داده شود."
+  ],
+  "roles": [
+    {
+      "id": "sales",
+      "name": "ثبت سفارش و فروش",
+      "headcount": 1
+    },
+    {
+      "id": "payment",
+      "name": "پرداخت و تأیید",
+      "headcount": 1
+    },
+    {
+      "id": "warehouse",
+      "name": "انبار و بسته‌بندی",
+      "headcount": 2
+    },
+    {
+      "id": "quality",
+      "name": "کنترل کیفیت",
+      "headcount": 1
+    },
+    {
+      "id": "dispatch",
+      "name": "آماده‌سازی ارسال",
+      "headcount": 1
+    }
+  ],
+  "activities": [
+    {
+      "id": "start",
+      "name": "شروع سفارش",
+      "type": "Start Event",
+      "lane": "sales",
+      "duration": 0,
+      "resources": 0,
+      "description": "سفارش مشتری در سامانه فروشگاه ثبت می‌شود."
+    },
+    {
+      "id": "register",
+      "name": "ثبت سفارش",
+      "type": "User Task",
+      "lane": "sales",
+      "duration": 2,
+      "resources": 1,
+      "description": "اطلاعات مشتری، اقلام سبد خرید و نشانی تحویل ثبت و کنترل اولیه می‌شود.",
+      "input": "اطلاعات مشتری و سبد خرید",
+      "output": "سفارش ثبت‌شده"
+    },
+    {
+      "id": "payment",
+      "name": "تأیید پرداخت",
+      "type": "User Task",
+      "lane": "payment",
+      "duration": 4,
+      "resources": 1,
+      "description": "وضعیت پرداخت از درگاه بررسی می‌شود. در مدل پایه این کار به شکل بررسی دستی با یک ظرفیت محدود مدل شده است؛ در سناریوی بهبود می‌تواند به Service Task تبدیل شود.",
+      "input": "سفارش ثبت‌شده",
+      "output": "نتیجه پرداخت"
+    },
+    {
+      "id": "paygw",
+      "name": "پرداخت موفق؟",
+      "type": "Exclusive Gateway",
+      "lane": "payment",
+      "duration": 0,
+      "resources": 0,
+      "description": "هر سفارش فقط یکی از دو مسیر پرداخت موفق یا پرداخت ناموفق را طی می‌کند."
+    },
+    {
+      "id": "cancel",
+      "name": "لغو سفارش",
+      "type": "End Path",
+      "lane": "sales",
+      "duration": 0,
+      "resources": 0,
+      "description": "سفارش پرداخت‌نشده از مسیر پردازش خارج می‌شود."
+    },
+    {
+      "id": "pickpack",
+      "name": "جمع‌آوری و بسته‌بندی",
+      "type": "User Task",
+      "lane": "warehouse",
+      "duration": 12,
+      "resources": 2,
+      "description": "اقلام از قفسه جمع‌آوری و بسته‌بندی می‌شوند. این ایستگاه در سناریوی پایه نامزد اصلی گلوگاه است.",
+      "input": "سفارش پرداخت‌شده",
+      "output": "بسته آماده کنترل"
+    },
+    {
+      "id": "quality",
+      "name": "کنترل کیفیت",
+      "type": "User Task",
+      "lane": "quality",
+      "duration": 5,
+      "resources": 1,
+      "description": "تطابق اقلام، سلامت بسته و نشانی بررسی می‌شود.",
+      "input": "بسته آماده کنترل",
+      "output": "بسته تأییدشده یا نیازمند اصلاح"
+    },
+    {
+      "id": "qgw",
+      "name": "بسته سالم است؟",
+      "type": "Exclusive Gateway",
+      "lane": "quality",
+      "duration": 0,
+      "resources": 0,
+      "description": "بسته تأییدشده به ارسال می‌رود؛ بسته نیازمند اصلاح یک بار به بسته‌بندی بازمی‌گردد."
+    },
+    {
+      "id": "dispatch",
+      "name": "تحویل به ارسال",
+      "type": "User Task",
+      "lane": "dispatch",
+      "duration": 4,
+      "resources": 1,
+      "description": "بسته تأییدشده برای تحویل به شرکت ارسال آماده می‌شود.",
+      "input": "بسته تأییدشده",
+      "output": "سفارش آماده ارسال"
+    },
+    {
+      "id": "end",
+      "name": "پایان فرایند",
+      "type": "End Event",
+      "lane": "dispatch",
+      "duration": 0,
+      "resources": 0,
+      "description": "سفارش از فرایند داخلی فروشگاه خارج شده است."
+    }
+  ],
+  "flow": [
+    [
+      "start",
+      "register"
+    ],
+    [
+      "register",
+      "payment"
+    ],
+    [
+      "payment",
+      "paygw"
+    ],
+    [
+      "paygw",
+      "cancel",
+      "پرداخت ناموفق"
+    ],
+    [
+      "paygw",
+      "pickpack",
+      "پرداخت موفق"
+    ],
+    [
+      "pickpack",
+      "quality"
+    ],
+    [
+      "quality",
+      "qgw"
+    ],
+    [
+      "qgw",
+      "pickpack",
+      "نیازمند اصلاح"
+    ],
+    [
+      "qgw",
+      "dispatch",
+      "تأیید شد"
+    ],
+    [
+      "dispatch",
+      "end"
+    ]
+  ],
+  "diagnosticData": {
+    "packingQueueMinutes": 7.8,
+    "qualityQueueMinutes": 1.1,
+    "packingWorkloadPercent": 100,
+    "qualityWorkloadPercent": 83,
+    "reworkPercent": 8,
+    "paymentFailurePercent": 4,
+    "note": "این ارقام یک برش داده آموزشی برای سؤال‌های ارزیابی‌اند و نباید با خروجی هر اجرای شبیه‌سازی یکی فرض شوند."
+  }
+}
